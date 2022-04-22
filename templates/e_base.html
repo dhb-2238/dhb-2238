@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base1.css' %}">
+    <title>主页</title>
+</head>
+<body>
+<div>
+    <ul class="nav">
+        <li><a href="{% url 'app:userge' %}">人员密码修改</a> </li>
+        <li><a href="{% url 'app:userselest' %}">员工个人信息查询</a></li>
+        <li><a href="{% url 'app:loge' %}">注销</a> </li>
+    </ul>
+</div>
+
+
+{% block content %}
+
+{% endblock %}
+
+</body>
+</html>

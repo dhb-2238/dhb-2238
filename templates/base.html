@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base1.css' %}">
+    <title>主页</title>
+</head>
+<body class="grid-container">
+<div>
+    <ul class="nav">
+        <li><a href="#">人员管理</a>
+            <ul class="show">
+                <li><a href="{% url 'app:employees' %}">添加人员</a></li>
+                <li><a href="{% url 'app:emploce' %}">修改人员</a></li>
+                <li><a href="{% url 'app:chaces' %}">删除人员</a></li>
+                <li><a href="{% url 'app:select' %}">查询人员</a></li>
+                <li><a href="{% url 'app:userge' %}">人员密码修改</a></li>
+            </ul>
+        </li>
+        <li><a href="#">部门管理</a>
+            <ul class="show">
+                <li><a href="{% url 'app:department' %}">添加部门</a></li>
+                <li><a href="{% url 'app:depar' %}">更改部门</a></li>
+                <li><a href="{% url 'app:chace' %}">删除部门</a></li>
+                <li><a href="{% url 'app:selects' %}">查询部门</a></li>
+            </ul>
+        </li>
+        <li><a href="{% url 'app:loge' %}">注销</a> </li>
+    </ul>
+</div>
+
+
+{% block content %}
+
+{% endblock %}
+
+</body>
+</html>

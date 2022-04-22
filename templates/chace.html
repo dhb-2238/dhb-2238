@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>部门信息删除</title>
+</head>
+<body>
+{% block content %}
+<div class="lens dry">
+    <h1 class="koc">删除部门信息资料</h1>
+<form action="{% url 'app:chace' %}" method="POST" class="koc">
+    {% csrf_token %}
+    <p>请输入要删除的部门编号</p>
+    请输入：<input type="text" name="Serial_number"><br>
+    <input type="submit" value="提交"><br>
+    {{t}}
+</form>
+</div>
+{% endblock %}
+</body>
+</html>

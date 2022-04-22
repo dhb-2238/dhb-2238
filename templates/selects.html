@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>部门信息查询</title>
+</head>
+<body>
+{% block content %}
+<div class="lens dry koc">
+    <h1 class="les">部门信息资料</h1>
+<form action="{% url 'app:selects' %}" method="POST" class="les lod">
+        <b class="len">部门信息表</b>
+        {% if departments %}
+        <table>
+            <tr><td>部门编号</td>
+                <td>部门主管</td>
+                <td>部门名称</td>
+                <td>部门电话</td>
+                <td>部门类别</td>
+            </tr>
+            {% for s in departments %}
+            <tr>
+                <td>{{s.Serial_number}}</td>
+                <td>{{s.boss}}</td>
+                <td>{{s.department}}</td>
+                <td>{{s.place}}</td>
+                <td>{{s.category}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+            {% if departments.has_previous %}
+                <a href="{% url 'app:selects' %}?page=1">|&lt;第一页</a>
+                <a href="{% url 'app:selects' %}?page={{departments.previous_pages}}">前一页</a>
+            {% endif %}
+            Page{{departments.number}} of {{departments.paginator.num_pages}}
+            {% if departments.has_next %}
+                <a href="{% url 'app:selects' %}?page={{departments.next_page_number }}">下一页</a>
+                <a href="{% url 'app:selects' %}?page={{departments.paginator.num_pages}}">最末页&gt;|</a>
+            {% endif %}
+        {% else %}
+            未查询到相关信息!
+        {% endif %}
+</form>
+
+</div>
+{% endblock %}
+</body>
+</html>

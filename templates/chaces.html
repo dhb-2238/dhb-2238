@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>员工信息删除</title>
+</head>
+<body>
+{% block content %}
+<div class="lens dry">
+    <h1 class="koc">删除员工信息资料</h1>
+<form action="{% url 'app:chaces' %}" method="POST" class="koc">
+    {% csrf_token %}
+    <p>请输入要删除的员工号</p>
+    工号：<input type="text" name="ids"><br>
+    <input type="submit" value="提交"><br>
+    {{t}}
+</form>
+
+</div>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>员工信息修改</title>
+</head>
+<body>
+{% block content %}
+<div class="lens dry">
+    <h1 class="koc">修改员工信息资料</h1>
+    <form action="{% url 'app:emploce' %}" method="POST" class="koc">
+        {% csrf_token %}
+        工号：<input type="text" name="ids" autofocus required><br>
+        姓名：<input type="text" name="name" required><br>
+        年龄：<input type="text" name="age" required><br>
+        性别：<input type="text" name="sex" required><br>
+        民族：<input type="text" name="national" required><br>
+        籍贯：<input type="text" name="Native_place" required><br>
+        生日：<input type="date" name="birthday" required><br>
+        工龄：<input type="text" name="service" required><br>
+        部门：<input type="text" name="department" required><br>
+
+        <input type="submit" value="修改"><br>
+    </form>
+</div>
+{% endblock %}
+</body>
+</html>

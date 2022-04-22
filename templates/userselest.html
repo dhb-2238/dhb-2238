@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% extends "e_base.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>员工信息查询</title>
+</head>
+<body>
+{% block content %}
+<div class="lens dry koc">
+    <h1>查询员工信息资料</h1>
+<form action="{% url 'app:userselest' %}" method="POST">
+        <b>员工信息表</b>
+        {% if user %}
+        <table class="len">
+            <tr><td>员工号</td>
+                <td>员工姓名</td>
+                <td>员工年龄</td>
+                <td>员工性别</td>
+                <td>员工工龄</td>
+                <td>员工民族</td>
+                <td>员工籍贯</td>
+                <td>员工生日</td>
+                <td>员工部门</td></tr>
+            <tr>
+                <td>{{user.ids}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.age}}</td>
+                <td>{{user.sex}}</td>
+                <td>{{user.service}}</td>
+                <td>{{user.national}}</td>
+                <td>{{user.Native_place}}</td>
+                <td>{{user.birthday}}</td>
+                <td>{{user.department}}</td>
+            </tr>
+        </table>
+        {% else %}
+            未查询到相关信息!
+        {% endif %}
+</form>
+
+</div>
+{% endblock %}
+</body>
+</html>

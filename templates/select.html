@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>员工信息查询</title>
+</head>
+<body>
+{% block content %}
+<div class="lens dry koc">
+    <h1 class="les">员工信息资料</h1>
+<form action="{% url 'app:select' %}" method="POST" class="les lod">
+        <b>员工信息表</b>
+        {% if emplocees %}
+        <table>
+            <tr><td>员工号</td>
+                <td>员工姓名</td>
+                <td>员工年龄</td>
+                <td>员工性别</td>
+                <td>员工工龄</td>
+                <td>员工民族</td>
+                <td>员工籍贯</td>
+                <td>员工生日</td>
+                <td>员工部门</td></tr>
+            {% for s in emplocees %}
+            <tr>
+                <td>{{s.ids}}</td>
+                <td>{{s.name}}</td>
+                <td>{{s.age}}</td>
+                <td>{{s.sex}}</td>
+                <td>{{s.service}}</td>
+                <td>{{s.national}}</td>
+                <td>{{s.Native_place}}</td>
+                <td>{{s.birthday}}</td>
+                <td>{{s.department}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+            {% if emplocees.has_previous %}
+                <a href="{% url 'app:select' %}?page=1">|&lt;第一页</a>
+                <a href="{% url 'app:select' %}?page={{emplocees.previous_pages}}">前一页</a>
+            {% endif %}
+            Page{{emplocees.number}} of {{emplocees.paginator.num_pages}}
+            {% if emplocees.has_next %}
+                <a href="{% url 'app:select' %}?page={{emplocees.next_page_number }}">下一页</a>
+                <a href="{% url 'app:select' %}?page={{emplocees.paginator.num_pages}}">最末页&gt;|</a>
+            {% endif %}
+        {% else %}
+            未查询到相关信息!
+        {% endif %}
+</form>
+
+</div>
+{% endblock %}
+</body>
+</html>

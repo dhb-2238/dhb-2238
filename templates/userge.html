@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends "e_base.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户密码修改</title>
+</head>
+<body>
+{% block content %}
+<div class="lens dry koc">
+    <h1 class="koc">用户密码修改</h1>
+    <form action="{% url 'app:userge' %}" method="POST">
+        {% csrf_token %}
+        用户账号：<input type="text" name="username" autofocus required><br>
+        用户密码：<input type="text" name="passwd" required><br>
+        <input type="submit" value="修改"><br>
+    </form>
+</div>
+{% endblock %}
+</body>
+</html>
